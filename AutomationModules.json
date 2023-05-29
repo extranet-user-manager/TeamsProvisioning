@@ -1,0 +1,36 @@
+{
+	"AutomationModules": [
+		{
+			"ModuleName": "Az.Accounts",
+			"ModuleVersion": ""
+		},
+		{
+			"ModuleName": "Az.Keyvault",
+			"ModuleVersion": ""
+		},
+		{
+			"ModuleName": "Az.Automation",
+			"ModuleVersion": ""
+		},
+		{
+			"ModuleName": "Az.Resources",
+			"ModuleVersion": ""
+		},
+		{
+			"ModuleName": "AzureADPreview",
+			"ModuleVersion": ""
+		},
+		{
+			"ModuleName": "MicrosoftTeams",
+			"ModuleVersion": "2.3.1"
+		},
+		{
+			"ModuleName": "ExchangeOnlineManagement",
+			"ModuleVersion": ""
+		},
+		{
+			"ModuleName": "PnP.PowerShell",
+			"ModuleVersion": "1.12.0"
+		}
+	]
+}
