@@ -1,5 +1,4 @@
-# TeamsProvisioning
-Teams Provisioning Installation V6.14
+Teams Provisioning Installation V2
 
 - Prerequistes
 	PowerShell Modules
@@ -43,3 +42,6 @@ Teams Provisioning Installation V6.14
 	Run EIT-Teams-Provisioning-Configuration.ps1
 	Update the Submit_Form Logic App Parameter 'Provision Site Logic App' to the URL of the CreateSite-ProvisionSite Logic App
 	Perform Manual Steps outlined in Teams Provisioning Deployment Guide
+
+	
+	
