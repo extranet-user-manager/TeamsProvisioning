@@ -1,7 +1,7 @@
 # TeamsProvisioning
 Teams Provisioning Installation V6.14
 
-- Prerequistes
+## Prerequistes
 	PowerShell Modules
 		Azure Az
 			Must have Azure Az.Accounts and Azure Az.Resources
@@ -13,7 +13,7 @@ Teams Provisioning Installation V6.14
 	Owner Access to Azure Subscription
 	PowerAutomate Premium
 	
-- Deployed Resources
+## Deployed Resources
 	App Registrations
 		<Resource Group Name>_EITTeamsProvisioning
 		<Resource Group Name>_EITTeamsProvisioning_API
@@ -25,7 +25,8 @@ Teams Provisioning Installation V6.14
 		4 - Runbooks
 	SharePoint Site Collection (Will be created if it doesn't exist)
 	
-- Sample Installaion.json
+## Sample Installaion.json
+```
 {
 	"PrimaryDomain":"test.onmicrosoft.com",
 	"SubscriptionId":"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -36,8 +37,9 @@ Teams Provisioning Installation V6.14
 	"CommunicationMethod":"Email", (Can be set to 'Email or 'Teams')
 	"OperatorEmail":"tester@test.onmicrosoft.com"
 }
-	
-- Installation Steps
+```
+
+## Installation Steps
 	Populate the installation.json file in the package
 	Unblock both ps1 files by going to properties of each file and checking the checkbox if it exists
 	Run EIT-Teams-Provisioning-Configuration.ps1
