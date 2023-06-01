@@ -234,7 +234,7 @@ Param
     $scope.AdminConsentDisplayName = $adminConsentDisplayName
     $scope.AdminConsentDescription = $adminConsentDescription
     $scope.IsEnabled = $true
-    $scope.Type = "User"
+    $scope.Type = "Admin"
     return $scope
 }
 
