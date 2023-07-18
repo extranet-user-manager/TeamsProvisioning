@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2022/09/ProvisioningSchema">
   <pnp:Preferences Generator="PnP.Framework, Version=1.11.2.0, Culture=neutral, PublicKeyToken=0d501f89f11b748c" />
-  <pnp:Templates ID="CONTAINER-TEMPLATE-433970E2C451407097CD8188D1903CF2">
-    <pnp:ProvisioningTemplate ID="TEMPLATE-433970E2C451407097CD8188D1903CF2" Version="1" BaseSiteTemplate="SITEPAGEPUBLISHING#0" Scope="RootSite">
+  <pnp:Templates ID="CONTAINER-TEMPLATE-E06CFA5EB40D41EBB87A05D91D6F3398">
+    <pnp:ProvisioningTemplate ID="TEMPLATE-E06CFA5EB40D41EBB87A05D91D6F3398" Version="1" BaseSiteTemplate="SITEPAGEPUBLISHING#0" Scope="RootSite">
       <pnp:Navigation AddNewPagesToNavigation="true" CreateFriendlyUrlsForNewPages="true">
         <pnp:GlobalNavigation NavigationType="Structural">
           <pnp:StructuralNavigation RemoveExistingNodes="false" />
@@ -134,6 +134,7 @@
                 </ArrayOfProperty>
               </Customization>
             </Field>
+            <Field ID="{67aff0cf-8e19-43f2-9987-be89075e1467}" Type="Note" DisplayName="Extracted Text" Name="MediaServiceOCR" Group="_Hidden" Hidden="FALSE" Indexed="FALSE" Sealed="TRUE" ReadOnly="TRUE" ShowInNewForm="FALSE" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInListSettings="FALSE" Viewable="FALSE" Json="FALSE" SourceID="{{listid:Documents}}" StaticName="MediaServiceOCR" ColName="ntext10" RowOrdinal="0" />
           </pnp:Fields>
           <pnp:FieldRefs>
             <pnp:FieldRef ID="76d13cd2-1bae-45a5-8b74-545b87b65037" Name="_ColorTag" DisplayName="Color Tag" />
@@ -151,9 +152,6 @@
               <pnp:RoleAssignment Principal="{associatedmembergroupid}" RoleDefinition="Edit" />
             </pnp:BreakRoleInheritance>
           </pnp:Security>
-          <pnp:Webhooks>
-            <pnp:Webhook ServerNotificationUrl="https://canadaeast1-0.pushnp.svc.ms/notifications?token=7d2033df-edb8-4077-9f58-88af84302011" ExpiresInDays="1" />
-          </pnp:Webhooks>
         </pnp:ListInstance>
         <pnp:ListInstance Title="Events" Description="" DocumentTemplate="" TemplateType="106" Url="Lists/Events" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-ec85-4903-972d-ebe475780106" ContentTypesEnabled="true" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Events/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Events/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Events/NewForm.aspx" ImageUrl="/_layouts/15/images/itevent.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
           <pnp:ContentTypeBindings>
