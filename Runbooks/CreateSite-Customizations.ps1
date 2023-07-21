@@ -277,9 +277,9 @@ function CreateSite-Customizations {
             Write-Verbose -Verbose -Message "Applying EUM-Data-Room-Template home page"
             $canvasContent = Get-PnPFile -Url "$($SiteCollectionRelativeURL)/PnPTemplates/EUM-Data-Room-Template.html" -Connection $connLandingSite -AsString
             
-            $eumAdminURLEncoded = $eumAdminURL -replace "https://", "https&#58;//"
-            $eumPortalURLEncoded = $eumPortalURL -replace "https://", "https&#58;//"
-            $eumAPIApplicationIDURIEncoded = $eumAPIApplicationIDURI -replace "api://", "api&#58;//"
+            $eumAdminURLEncoded = $eumAdminURL.Value -replace "https://", "https&#58;//"
+            $eumPortalURLEncoded = $eumPortalURL.Value -replace "https://", "https&#58;//"
+            $eumAPIApplicationIDURIEncoded = $eumAPIApplicationIDURI.Value -replace "api://", "api&#58;//"
             $eumDataRoomURLEncoded = $siteURL -replace "https://", "https&#58;//"
             
             $canvasContent = $canvasContent -replace "~eumAdminURL~", $eumAdminURLEncoded
