@@ -137,9 +137,9 @@ function CreateSite-Customizations {
                 $meetingTemplate = Get-PnPListItem -List PublisherPageTemplates -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>Committee Meeting Page</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
 
                 # Get the EUM values needed for webpart
-                $eumAdminURL = Get-PnPListItem -List SuiteConfig -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>AdminURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
-                $eumPortalURL = Get-PnPListItem -List SuiteConfig -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>PortalURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
-                $eumAPIApplicationIDURI = Get-PnPListItem -List SuiteConfig -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>EUM-API-Application-ID-URI</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
+                $eumAdminURL = Get-PnPListItem -List "Suite Config" -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>AdminURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
+                $eumPortalURL = Get-PnPListItem -List "Suite Config" -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>PortalURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
+                $eumAPIApplicationIDURI = Get-PnPListItem -List "Suite Config" -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>EUM-API-Application-ID-URI</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
 
                 # EUM page templates found
                 if ($committeeTemplate -ne $null -and $committeeTemplate.Id -ne $null -and $meetingTemplate -ne $null -and $meetingTemplate.Id -ne $null) {
@@ -199,9 +199,9 @@ function CreateSite-Customizations {
                 $projectTemplate = Get-PnPListItem -List PublisherPageTemplates -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>Group Member Project Page</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
 
                 # Get the EUM values needed for webpart
-                $eumAdminURL = Get-PnPListItem -List SuiteConfig -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>AdminURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
-                $eumPortalURL = Get-PnPListItem -List SuiteConfig -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>PortalURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
-                $eumAPIApplicationIDURI = Get-PnPListItem -List SuiteConfig -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>EUM-API-Application-ID-URI</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
+                $eumAdminURL = Get-PnPListItem -List "Suite Config" -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>AdminURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
+                $eumPortalURL = Get-PnPListItem -List "Suite Config" -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>PortalURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
+                $eumAPIApplicationIDURI = Get-PnPListItem -List "Suite Config" -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>EUM-API-Application-ID-URI</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
 
                 # EUM page templates found
                 if ($projectTemplate -ne $null -and $projectTemplate.Id -ne $null) {
@@ -251,9 +251,9 @@ function CreateSite-Customizations {
                 $dataRoomTemplate = Get-PnPListItem -List PublisherPageTemplates -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>Group Member Document Sharing</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
 
                 # Get the EUM values needed for webpart
-                $eumAdminURL = Get-PnPListItem -List SuiteConfig -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>AdminURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
-                $eumPortalURL = Get-PnPListItem -List SuiteConfig -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>PortalURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
-                $eumAPIApplicationIDURI = Get-PnPListItem -List SuiteConfig -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>EUM-API-Application-ID-URI</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
+                $eumAdminURL = Get-PnPListItem -List "Suite Config" -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>AdminURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
+                $eumPortalURL = Get-PnPListItem -List "Suite Config" -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>PortalURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
+                $eumAPIApplicationIDURI = Get-PnPListItem -List "Suite Config" -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>EUM-API-Application-ID-URI</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
 
                 #Copy Templates folder and contents to new site with metadata
                 Add-PnPFolder -Name "Templates" -Folder "Shared Documents" -Connection $connNewSite
@@ -309,9 +309,9 @@ function CreateSite-Customizations {
                 $partnerTemplate = Get-PnPListItem -List PublisherPageTemplates -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>Group Member Partner Page</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
 
                 # Get the EUM values needed for webpart
-                $eumAdminURL = Get-PnPListItem -List SuiteConfig -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>AdminURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
-                $eumPortalURL = Get-PnPListItem -List SuiteConfig -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>PortalURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
-                $eumAPIApplicationIDURI = Get-PnPListItem -List SuiteConfig -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>EUM-API-Application-ID-URI</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
+                $eumAdminURL = Get-PnPListItem -List "Suite Config" -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>AdminURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
+                $eumPortalURL = Get-PnPListItem -List "Suite Config" -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>PortalURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
+                $eumAPIApplicationIDURI = Get-PnPListItem -List "Suite Config" -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>EUM-API-Application-ID-URI</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
 
                 # EUM page templates found
                 if ($partnerTemplate -ne $null -and $partnerTemplate.Id -ne $null) {
@@ -343,9 +343,9 @@ function CreateSite-Customizations {
                 $clientTemplate = Get-PnPListItem -List PublisherPageTemplates -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>Group Member Client Page</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
 
                 # Get the EUM values needed for webpart
-                $eumAdminURL = Get-PnPListItem -List SuiteConfig -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>AdminURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
-                $eumPortalURL = Get-PnPListItem -List SuiteConfig -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>PortalURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
-                $eumAPIApplicationIDURI = Get-PnPListItem -List SuiteConfig -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>EUM-API-Application-ID-URI</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
+                $eumAdminURL = Get-PnPListItem -List "Suite Config" -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>AdminURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
+                $eumPortalURL = Get-PnPListItem -List "Suite Config" -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>PortalURL</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
+                $eumAPIApplicationIDURI = Get-PnPListItem -List "Suite Config" -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>EUM-API-Application-ID-URI</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
 
                 # EUM page templates found
                 if ($clientTemplate -ne $null -and $clientTemplate.Id -ne $null) {
