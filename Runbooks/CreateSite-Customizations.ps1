@@ -256,17 +256,17 @@ function CreateSite-Customizations {
                 $eumAPIApplicationIDURI = Get-PnPListItem -List "Suite Config" -Query "<View><Query><Where><Eq><FieldRef Name='Title'/><Value Type='Text'>EUM-API-Application-ID-URI</Value></Eq></Where></Query></View>" -Connection $connEUMConfigSite
 
                 #Copy Templates folder and contents to new site with metadata
-                Add-PnPFolder -Name "Templates" -Folder "Shared Documents" -Connection $connNewSite
-                Copy-PnPFile -SourceUrl "$($SiteCollectionRelativeURL)/PnPTemplates/Document Tracking.json" -TargetUrl "Shared Documents/Templates" -IgnoreVersionHistory -Connection $connNewSite -Force
+                Add-PnPFolder -Name "Templates" -Folder "Shared Documents/General" -Connection $connNewSite
+                Copy-PnPFile -SourceUrl "$($SiteCollectionRelativeURL)/PnPTemplates/Document Tracking.json" -TargetUrl "Shared Documents/General/Templates" -IgnoreVersionHistory -Connection $connNewSite -Force
                 #Wait 10 seconds for copy to complete
                 Start-Sleep -Seconds 10
-                $DocumentJson = Get-PnPFile -Url "Shared Documents/Templates/Document Tracking.json" -AsListItem -Connection $connNewSite
+                $DocumentJson = Get-PnPFile -Url "Shared Documents//GeneralTemplates/Document Tracking.json" -AsListItem -Connection $connNewSite
                 Set-PnPListItem -List "Documents" -Identity $DocumentJson.Id -Values @{"InternalDocumentType" = "Document Tracking JSON"} -Connection $connNewSite          
                 
-                Copy-PnPFile -SourceUrl "$($SiteCollectionRelativeURL)/PnPTemplates/Document Tracking.xlsx" -TargetUrl "Shared Documents/Templates" -IgnoreVersionHistory -Connection $connNewSite -Force
+                Copy-PnPFile -SourceUrl "$($SiteCollectionRelativeURL)/PnPTemplates/Document Tracking.xlsx" -TargetUrl "Shared Documents/General/Templates" -IgnoreVersionHistory -Connection $connNewSite -Force
                 #Wait 10 seconds for copy to complete            
                 Start-Sleep -Seconds 10
-                $DocumentExcel = Get-PnPFile -Url "Shared Documents/Templates/Document Tracking.xlsx" -AsListItem -Connection $connNewSite  
+                $DocumentExcel = Get-PnPFile -Url "Shared Documents/General/Templates/Document Tracking.xlsx" -AsListItem -Connection $connNewSite  
                 Set-PnPListItem -List "Documents" -Identity $DocumentExcel.Id -Values @{"InternalDocumentType" = "Document Tracking Excel"} -Connection $connNewSite          
                 
                 # Create new permission level Contribute No Delete
