@@ -262,7 +262,7 @@ function CreateSite-Customizations {
                 Copy-PnPFile -SourceUrl "$($SiteCollectionRelativeURL)/PnPTemplates/Document Tracking.json" -TargetUrl "Shared Documents/General/Templates" -IgnoreVersionHistory -Connection $connNewSite -Force
                 #Wait 10 seconds for copy to complete
                 Start-Sleep -Seconds 10
-                $DocumentJson = Get-PnPFile -Url "Shared Documents//GeneralTemplates/Document Tracking.json" -AsListItem -Connection $connNewSite
+                $DocumentJson = Get-PnPFile -Url "Shared Documents/General/Templates/Document Tracking.json" -AsListItem -Connection $connNewSite
                 Set-PnPListItem -List "Documents" -Identity $DocumentJson.Id -Values @{"InternalDocumentType" = "Document Tracking JSON"} -Connection $connNewSite          
                 
                 Copy-PnPFile -SourceUrl "$($SiteCollectionRelativeURL)/PnPTemplates/Document Tracking.xlsx" -TargetUrl "Shared Documents/General/Templates" -IgnoreVersionHistory -Connection $connNewSite -Force
