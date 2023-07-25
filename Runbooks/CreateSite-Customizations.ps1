@@ -239,11 +239,13 @@ function CreateSite-Customizations {
         elseif (($pnpSiteTemplate -like "*EUM-Data-Room-Template.xml")) {
             # Connect to the newly created site and get its group ID
             $connNewSite = Helper-Connect-PnPOnline -Url $siteURL
-            $site = Get-PnPSite -Connection $connNewSite -Includes GroupId
+            $site = Get-PnPSite -Connection $connNewSite -Includes GroupId,RootWeb
 
             # Make sure we have access to the Azure Automation variables
             if (![string]::IsNullOrWhiteSpace($site.GroupId) -and $AzureAutomation) {
                 # Get and connect to the EUM Config site
+                Write-Output -Verbose -Message "Get and connect to the EUM Config site"
+
                 $eumConfigSite = Get-AutomationVariable -Name 'EUMConfigSiteURL'
                 $connEUMConfigSite = Helper-Connect-PnPOnline -Url $eumConfigSite
 
@@ -281,11 +283,15 @@ function CreateSite-Customizations {
             $eumPortalURLEncoded = $eumPortalURL.Value -replace "https://", "https&#58;//"
             $eumAPIApplicationIDURIEncoded = $eumAPIApplicationIDURI.Value -replace "api://", "api&#58;//"
             $eumDataRoomURLEncoded = $siteURL -replace "https://", "https&#58;//"
+            $siteTitle = $site.RootWeb.Title
+            Write-Output -Verbose -Message "eumAdminUrlEncoded is $($eumAdminURLEncoded)"
+            Write-Output -Verbose -Message "siteTitle is $($siteTitle)"
             
             $canvasContent = $canvasContent -replace "~eumAdminURL~", $eumAdminURLEncoded
             $canvasContent = $canvasContent -replace "~eumPortalURL~", $eumPortalURLEncoded
             $canvasContent = $canvasContent -replace "~eumAPIApplicationIDURI~", $eumAPIApplicationIDURIEncoded
             $canvasContent = $canvasContent -replace "~eumDataRoomURL~", $eumDataRoomURLEncoded
+            $canvasContent = $canvasContent -replace "~siteTitle~", $siteTitle
             
             $pageNameWithExtension = "Home.aspx"
             $page = Get-PnPListItem -List "SitePages" -Query "<View><Query><Where><Eq><FieldRef Name='FileLeafRef'/><Value Type='String'>$($pageNameWithExtension)</Value></Eq></Where></Query></View>" -Connection $connNewSite

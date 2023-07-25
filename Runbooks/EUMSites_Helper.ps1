@@ -774,6 +774,7 @@ function ProvisionSite {
                                 
                                 Helper-Connect-MicrosoftTeams
                                 $team = New-Team -DisplayName $siteTitle -MailNickName $alias -Owner $owner -Visibility $teamVisibility
+                                Start-Sleep -Seconds 15
 
                                 $global:groupId = $team.GroupId
                                 $GroupId = $groupId
@@ -781,6 +782,10 @@ function ProvisionSite {
                                 $generalChannel = $teamsChannels | Where-Object { $_.DisplayName -eq 'General' }
                                 $generalChannelId = $generalChannel.Id
                                 $GroupCreatedDate = Get-Date -Format "MM/dd/yyyy h:mm tt"
+
+                                # problem with Files tab not setup in new General Channel - solution is to make a call to access it so it gets provisioned https://github.com/pnp/powershell/discussions/2021
+                                Connect-MgGraph -Tenant $Global:PrimaryDomain -ClientId $Global:ClientId -CertificateThumbprint $Global:CertificateThumbprint
+                                $dummyOutput = Get-MgTeamChannelFileFolder -TeamId $team.GroupId -ChannelId $generalChannel.id
                             }
                             else {
                                 if ($siteVisibility -eq "Public") {
