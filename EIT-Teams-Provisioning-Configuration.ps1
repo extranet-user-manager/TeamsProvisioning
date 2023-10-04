@@ -5,7 +5,6 @@
 #Requires -Modules @{ ModuleName="PnP.PowerShell"; ModuleVersion="1.12.0" }
 
 Import-Module Az.Accounts -MinimumVersion 2.3.0
-Import-Module Az.Automation -RequiredVersion 1.8.0
 Import-Module PNP.PowerShell -MinimumVersion 1.12.0
 
 . $PSScriptRoot\EIT-Teams-Provisioning-Helpers.ps1
