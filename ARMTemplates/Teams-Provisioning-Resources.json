@@ -1404,44 +1404,49 @@
                             "actions": {
                                 "Check_if_Logic_App_Approval_is_enabled": {
                                     "actions": {
-                                        "Check_if_approved": {
-                                            "actions": {
-                                                "HTTP_POST_to_CreateSite-ProvisionSite_Logic_App": {
-                                                    "runAfter": {
-                                                        "Set_Logic_App_content_approval_status": [
-                                                            "Succeeded"
-                                                        ]
-                                                    },
-                                                    "type": "Http",
-                                                    "inputs": {
-                                                        "body": {
-                                                            "ListItemId": "@body('Create_Sites_item')?['ID']"
-                                                        },
-                                                        "method": "POST",
-                                                        "uri": "@parameters('Provision Site Logic App')"
-                                                    }
-                                                },
-                                                "Set_Logic_App_content_approval_status": {
-                                                    "runAfter": {
-                                                        
-                                                    },
-                                                    "type": "ApiConnection",
-                                                    "inputs": {
-                                                        "host": {
-                                                            "connection": {
-                                                                "name": "@parameters('$connections')['sharepointonline']['connectionId']"
-                                                            }
-                                                        },
-                                                        "method": "post",
-                                                        "path": "/datasets/@{encodeURIComponent(encodeURIComponent(parameters('Site Address')))}/tables/@{encodeURIComponent(encodeURIComponent(parameters('Sites List GUID')))}/items/@{encodeURIComponent(encodeURIComponent(body('Create_Sites_item')?['ID']))}/setapprovalstatus",
-                                                        "queries": {
-                                                            "approvalAction": "Approve",
-                                                            "comments": "Approved",
-                                                            "entityTag": ""
-                                                        }
-                                                    }
-                                                }
+                                      "Check_if_approved": {
+                                        "actions": {
+                                          "CreateSite-ProvisionSite_2": {
+                                            "runAfter": {
+                                              "Set_Logic_App_content_approval_status": [
+                                                "Succeeded"
+                                              ]
                                             },
+                                            "type": "Workflow",
+                                            "inputs": {
+                                              "body": {
+                                                "ListItemId": "@body('Create_Sites_item')?['ID']"
+                                              },
+                                              "host": {
+                                                "method": "POST",
+                                                "triggerName": "manual",
+                                                "workflow": {
+                                                  "id": "[resourceId('Microsoft.Logic/workflows', parameters('workflows_CreateSite_ProvisionSite_name'))]"
+                                                }
+                                              }
+                                          }
+                                        },
+                                        "Set_Logic_App_content_approval_status": {
+                                          "runAfter": {
+
+                                          },
+                                          "type": "ApiConnection",
+                                          "inputs": {
+                                            "host": {
+                                              "connection": {
+                                                "name": "@parameters('$connections')['sharepointonline']['connectionId']"
+                                              }
+                                            },
+                                            "method": "post",
+                                            "path": "/datasets/@{encodeURIComponent(encodeURIComponent(parameters('Site Address')))}/tables/@{encodeURIComponent(encodeURIComponent(parameters('Sites List GUID')))}/items/@{encodeURIComponent(encodeURIComponent(body('Create_Sites_item')?['ID']))}/setapprovalstatus",
+                                            "queries": {
+                                              "approvalAction": "Approve",
+                                              "comments": "Approved",
+                                              "entityTag": ""
+                                            }
+                                          }
+                                        }
+                                      },
                                             "runAfter": {
                                                 "Send_approval_email": [
                                                     "Succeeded"
